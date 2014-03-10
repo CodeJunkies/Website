@@ -1,1 +1,35 @@
-<h1>Hi There</h1>
+<!doctype html>
+<html lang="en" ng-app="cj" ng-controller="cjCtrl">
+<head>
+  <meta charset="utf-8">
+  <title>The North Jersey Code Junkies</title>
+</head>
+<body>
+
+<div>
+  <input type="checkbox" id="askApproval" ng-model="askApproval" />
+  <label for="askApproval">Always ask me for approval (even if I've already given it)</label>
+  <div>
+    <button ng-click="authenticate()">Authenticate</button>
+  </div>
+
+  <div ng-show="accessToken" style="display: none">
+    <h1>You're authenticated!</h1>
+
+    <h2>Access token</h2>
+    <pre>{{accessToken}}</pre>
+
+    <div ng-show="expiresIn">
+      <h2>Expiry</h2>
+      <p>Expires in {{expiresIn}} seconds.</p>
+    </div>
+  </div>
+</div>
+
+<script src="lib/angular/angular.min.js"></script>
+
+<script src="js/cj.js"></script>
+<script src="lib/src/js/googleOauth.js"></script>
+<script src="lib/src/js/angularOauth.js"></script>
+</body>
+</html>
